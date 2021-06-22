@@ -1,6 +1,6 @@
 package week2.day2;
 
-import java.util.List;
+
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -44,14 +44,17 @@ public class DropDownXpath {
 			
 			drpDown4.selectByVisibleText("Loadrunner");
 			
-			/*WebElement webElement5 = driver.findElement(By.xpath("//select[@class='dropdown']/following::div"));
+			WebElement webElement5 = driver.findElement(By.xpath("//select[@class='dropdown']/following::select"));
 			Select drpDown5 = new Select(webElement5);
 			drpDown5.selectByVisibleText("UFT/QTP");
-			*/
-			WebElement webElement6 = driver.findElement(By.xpath("((//div[@class='example'])[6]"));
+			
+			WebElement webElement6 = driver.findElement(By.xpath("//select[@class='dropdown']/following::select[2]"));
 			Select drpDown6 = new Select(webElement6);
-			drpDown6.selectByVisibleText("Selenium");
-			//drpDown6.selectByVisibleText("Appium");
+			if(drpDown6.isMultiple()){
+				drpDown6.selectByIndex(2);
+				drpDown6.selectByIndex(3);
+			}
+		
 			
 			driver.close();
 			
